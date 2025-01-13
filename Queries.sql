@@ -55,3 +55,29 @@ where first_name='Johannes' and last_name='Van der Berg'
 -- GROUP BY first_name,last_name,artist.name
 -- HAVING first_name='Johannes'
 -- ORDER BY first_name,last_name,artist.name
+
+ -- Q4: find out the most popular music genre for each country. 
+WITH Album_all as (SELECT * FROM Music_store.album UNION SELECT * FROM Music_store.album2),
+genre_classify_country as (SELECT country,genre.name as genre,sum(quantity) as total_purchase
+FROM Music_store.invoice
+JOIN Music_store.invoice_line 
+USING (invoice_id)
+JOIN Music_store.customer
+USING (customer_id)
+JOIN Music_store.track 
+USING (track_id)
+JOIN Album_all
+USING (Album_id)
+JOIN Music_store.artist
+USING (artist_id)
+JOIN Music_store.genre
+USING (genre_id)
+GROUP BY country,genre.name
+ORDER BY country,total_purchase DESC)
+
+SELECT country,genre,total_purchase
+FROM genre_classify_country
+WHERE (country,total_purchase) IN (SELECT country,max(total_purchase)
+FROM genre_classify_country
+GROUP BY country)
+
