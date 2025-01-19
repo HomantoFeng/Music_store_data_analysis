@@ -9,5 +9,6 @@ SQL queries to answer five questions:
 -- Find out the most popular music genre for each country
 -- Find out the customer that spent the most for each country
 
+Data Preprocessing
 
-
+Before importing the datasets into MySQL Workbench, I performed preprocessing in Python using the [CSV2Json_convert.ipynb](https://github.com/HomantoFeng/Music_store_data_analysis/blob/main/CSV2Json_convert.ipynb) script. This process involved converting multiple CSV files into JSON format to ensure the data was clean and fully compatible with SQL operations. Special attention was given to handling non-ASCII characters, including the UTF-8 Byte Order Mark (BOM), to avoid potential encoding issues.
