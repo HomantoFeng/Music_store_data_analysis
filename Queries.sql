@@ -36,27 +36,8 @@ FROM Music_store.track
 where milliseconds> (SELECT AVG(milliseconds) as ave_len FROM Music_store.track)
 order by milliseconds desc
  
- -- Q4: find out how much amount spent by each customer on artists? Write a query to return customer name,artist nanme and total spent
-WITH Album_all as (SELECT * FROM Music_store.album UNION SELECT * FROM Music_store.album2)
 
-SELECT * -- first_name,last_name,artist.name,sum(invoice_line.unit_price*invoice_line.quantity) as amount_spent
-FROM Music_store.invoice
-JOIN Music_store.invoice_line 
-USING (invoice_id)
-JOIN Music_store.customer
-USING (customer_id)
-JOIN Music_store.track 
-USING (track_id)
-JOIN Album_all
-USING (Album_id)
-JOIN Music_store.artist
-USING (artist_id)
-where first_name='Johannes' and last_name='Van der Berg'
--- GROUP BY first_name,last_name,artist.name
--- HAVING first_name='Johannes'
--- ORDER BY first_name,last_name,artist.name
-
- -- Q5: find out the most popular music genre for each country. 
+ -- Q4: find out the most popular music genre for each country. 
 WITH Album_all as (SELECT * FROM Music_store.album UNION SELECT * FROM Music_store.album2),
 genre_classify_country as (SELECT country,genre.name as genre,sum(quantity) as total_purchase
 FROM Music_store.invoice
@@ -81,7 +62,7 @@ WHERE (country,total_purchase) IN (SELECT country,max(total_purchase)
 FROM genre_classify_country
 GROUP BY country)
 
- -- Q6: find out the customer that spent the most for each country
+ -- Q5: find out the customer that spent the most for each country
 WITH Album_all as (SELECT * FROM Music_store.album UNION SELECT * FROM Music_store.album2),
 spent_amount as (
 SELECT country,customer_id,customer.first_name as first_name,customer.last_name as last_name,sum(invoice_line.quantity*invoice_line.unit_price) as spent_amount 
