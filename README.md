@@ -1,6 +1,6 @@
 # Music_store_data_analysis ![icons8-mysql-logo-48](https://github.com/swaapnaa/SQL-PROJECTS/assets/149737403/95180ab6-019c-4ba1-9165-e9449cb95614)
 
-In this project, I wrote five SQL queries to analyze the intricate relationships among 12 datasets from the Music Store Data Analysis. I also developed an Entity-Relationship (ER) model to visually represent the table structures and their logical interconnections. By combining these SQL queries with the ER model, I demonstrate my ability to handle complex datasets, extract meaningful insights, and present results in a clear and organized way.
+In this project, I wrote five SQL queries to analyze the intricate relationships among [12 datasets](https://github.com/HomantoFeng/Music_store_data_analysis/tree/main) from the Music Store Data Analysis. I also developed an Entity-Relationship (ER) model to visually represent the table structures and their logical interconnections. By combining these SQL queries with the ER model, I demonstrate my ability to handle complex datasets, extract meaningful insights, and present results in a clear and organized way.
 
 SQL queries to answer five questions:
 - Q1: Find info of all Rock Music listeners returning emails, first name and last name
