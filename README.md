@@ -15,6 +15,7 @@ Before importing the datasets into MySQL Workbench, I performed preprocessing in
 
 Visualizing Relationships: ER Diagrams for Each Query
 
-Q1:
-![image](https://github.com/user-attachments/assets/3b77641a-f717-4827-95b9-d97e4abebd92)
+![image](https://github.com/user-attachments/assets/b99c64ff-ef3b-4350-95f4-3aeef67a9ed2)
+
+
 
